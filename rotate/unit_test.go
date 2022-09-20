@@ -3,8 +3,8 @@ package rotate
 import "testing"
 
 func TestHelp(t *testing.T) {
-	src := "/Users/zen/Github/rotateVideo/file"
-	dst := "/Users/zen/Github/rotateVideo/file/done"
+	src := "/Users/zen/Movies"
+	dst := "/Users/zen/Movies/bilibili"
 	file := "電車.mp4"
 	threads := "2"
 	direction := "ToRight"

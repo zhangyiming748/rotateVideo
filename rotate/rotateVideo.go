@@ -12,7 +12,7 @@ import (
 func Rotate(src, pattern, direction, dst, threads string) {
 	files := getFiles(src, pattern)
 	for index, file := range files {
-		println(index, file)
+		log.Info.Printf("正在处理第 %d/%d 个文件\n", index+1, len(files))
 		rotate_help(src, dst, file, direction, threads)
 	}
 }
