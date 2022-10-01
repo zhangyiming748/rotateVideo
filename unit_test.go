@@ -1,6 +1,8 @@
-package rotate
+package rotateVideo
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestHelp(t *testing.T) {
 	src := "/Users/zen/Movies"

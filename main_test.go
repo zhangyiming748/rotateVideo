@@ -1,7 +1,6 @@
 package rotateVideo
 
 import (
-	"github.com/zhangyiming748/rotateVideo/rotate"
 	"testing"
 )
 
@@ -11,5 +10,5 @@ func TestUnit(t *testing.T) {
 	pattern := "mp4"
 	threads := "2"
 	direction := "ToRight"
-	rotate.Rotate(src, pattern, direction, dst, threads)
+	Rotate(src, pattern, direction, dst, threads)
 }

@@ -1,7 +1,8 @@
-package rotate
+package rotateVideo
 
 import (
 	"fmt"
+	"github.com/zhangyiming748/replace"
 	"github.com/zhangyiming748/rotateVideo/log"
 	"os"
 	"os/exec"
@@ -22,7 +23,7 @@ func rotate_help(src, dst, file, direction, threads string) {
 	in := strings.Join([]string{src, file}, "/")
 	extname := path.Ext(file) //.txt
 	filename := strings.Trim(file, extname)
-	filename = replace(filename)
+	filename = replace.Replace(filename)
 	export := strings.Join([]string{dst, strings.Join([]string{filename, "mp4"}, ".")}, "/")
 	var cmd *exec.Cmd
 	switch direction {
@@ -62,20 +63,6 @@ func rotate_help(src, dst, file, direction, threads string) {
 	log.Debug.Printf("完成当前文件的处理:dst是%s\tfile是%s\n", dst, file)
 }
 
-func replace(str string) string {
-	str = strings.Replace(str, "\n", "", -1)
-	str = strings.Replace(str, " ", "", -1)
-	str = strings.Replace(str, "《", "", -1)
-	str = strings.Replace(str, "》", "", -1)
-	str = strings.Replace(str, "【", "", -1)
-	str = strings.Replace(str, "】", "", -1)
-	str = strings.Replace(str, "(", "", -1)
-	str = strings.Replace(str, ")", "", -1)
-	str = strings.Replace(str, " ", "", -1)
-	str = strings.Replace(str, "\u00A0", "", -1)
-	str = strings.Replace(str, "\u0000", "", -1)
-	return str
-}
 func getFiles(dir, pattern string) []string {
 	files, _ := os.ReadDir(dir)
 	var aim []string
