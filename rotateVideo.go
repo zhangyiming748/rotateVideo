@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/zhangyiming748/replace"
 	"github.com/zhangyiming748/rotateVideo/log"
+	"github.com/zhangyiming748/voiceAlert"
 	"os"
 	"os/exec"
 	"path"
@@ -16,9 +17,16 @@ func Rotate(src, pattern, direction, dst, threads string) {
 		log.Debug.Printf("正在处理第 %d/%d 个文件:%s\n", index+1, len(files), files)
 		rotate_help(src, dst, file, direction, threads)
 		log.Debug.Printf("处理完成第 %d/%d 个文件:%s\n", index+1, len(files), files)
+		voiceAlert.VoiceAlert(1)
 	}
+	voiceAlert.VoiceAlert(3)
 }
 func rotate_help(src, dst, file, direction, threads string) {
+	defer func() {
+		if err := recover(); err != nil {
+			voiceAlert.VoiceAlert(2)
+		}
+	}()
 	var errorReport string
 	in := strings.Join([]string{src, file}, "/")
 	extname := path.Ext(file) //.txt
@@ -61,6 +69,8 @@ func rotate_help(src, dst, file, direction, threads string) {
 		errorReport = strings.Join([]string{errorReport, fmt.Sprintf("命令执行中有错误产生:%v", err)}, "")
 	}
 	log.Debug.Printf("完成当前文件的处理:dst是%s\tfile是%s\n", dst, file)
+
+	os.RemoveAll(in)
 }
 
 func getFiles(dir, pattern string) []string {

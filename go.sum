@@ -1,2 +1,4 @@
 github.com/zhangyiming748/replace v0.0.1 h1:Y95qVQyCNrkfZwBJ3gZylA44r2Tn8y3mlLtG0lB7o7s=
 github.com/zhangyiming748/replace v0.0.1/go.mod h1:R3otYn+0qxaHOVaz0LafMwoDjhTexJijrLgfcDyOYCQ=
+github.com/zhangyiming748/voiceAlert v0.0.1 h1:aLoIIaFxMkzDcdJplZ7kBtGJdtYnHLda0cIyqloOEE8=
+github.com/zhangyiming748/voiceAlert v0.0.1/go.mod h1:ReSkuJK/eAGpWs1k5MvAAe2WTKKQly6LzbOZ6FoHk6Y=
