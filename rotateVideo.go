@@ -28,9 +28,9 @@ func rotate_help(src, dst, file, direction, threads string) {
 	var cmd *exec.Cmd
 	switch direction {
 	case "ToRight":
-		cmd = exec.Command("ffmpeg", "-threads", threads, "-i", in, "-vf", "transpose=1", "-threads", threads, export)
+		cmd = exec.Command("ffmpeg", "-threads", threads, "-i", in, "-vf", "transpose=1", "-c:v", "libx265", "-threads", threads, export)
 	case "ToLeft":
-		cmd = exec.Command("ffmpeg", "-threads", threads, "-i", in, "-vf", "transpose=2", "-threads", threads, export)
+		cmd = exec.Command("ffmpeg", "-threads", threads, "-i", in, "-vf", "transpose=2", "-c:v", "libx265", "-threads", threads, export)
 	default:
 		return
 	}
