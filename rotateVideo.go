@@ -21,13 +21,13 @@ func Rotate(src, pattern, direction, dst, threads string) {
 	files := getFiles(src, pattern)
 	for index, file := range files {
 		log.Debug.Printf("正在处理第 %d/%d 个文件:%s\n", index+1, len(files), files)
-		rotate_help(src, dst, file, direction, threads)
+		rotate_help(src, dst, file, direction, threads, index+1, len(files))
 		log.Debug.Printf("处理完成第 %d/%d 个文件:%s\n", index+1, len(files), files)
 		voiceAlert.Voice(success)
 	}
 	voiceAlert.Voice(complete)
 }
-func rotate_help(src, dst, file, direction, threads string) {
+func rotate_help(src, dst, file, direction, threads string, index, total int) {
 	defer func() {
 		if err := recover(); err != nil {
 			voiceAlert.Voice(failed)
@@ -65,7 +65,7 @@ func rotate_help(src, dst, file, direction, threads string) {
 		//写成输出日志
 		t := string(tmp)
 		t = strings.Replace(t, "\u0000", "", -1)
-		log.Info.Printf("正在处理的文件:%s\n", file)
+		log.Info.Printf("正在处理第 %d/%d 个文件:%s\n", index, total, file)
 		log.Info.Println(t)
 		if err != nil {
 			break
