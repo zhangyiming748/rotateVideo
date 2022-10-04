@@ -11,20 +11,26 @@ import (
 	"strings"
 )
 
+const (
+	success  = iota + 1 // 单次转码成功
+	failed              // 转码失败,程序退出
+	complete            // 转码进程完成
+)
+
 func Rotate(src, pattern, direction, dst, threads string) {
 	files := getFiles(src, pattern)
 	for index, file := range files {
 		log.Debug.Printf("正在处理第 %d/%d 个文件:%s\n", index+1, len(files), files)
 		rotate_help(src, dst, file, direction, threads)
 		log.Debug.Printf("处理完成第 %d/%d 个文件:%s\n", index+1, len(files), files)
-		voiceAlert.VoiceAlert(1)
+		voiceAlert.Voice(success)
 	}
-	voiceAlert.VoiceAlert(3)
+	voiceAlert.Voice(complete)
 }
 func rotate_help(src, dst, file, direction, threads string) {
 	defer func() {
 		if err := recover(); err != nil {
-			voiceAlert.VoiceAlert(2)
+			voiceAlert.Voice(failed)
 		}
 	}()
 	var errorReport string
@@ -42,7 +48,7 @@ func rotate_help(src, dst, file, direction, threads string) {
 	default:
 		return
 	}
-	log.Debug.Printf("开始处理文件%s\t生成的命令是:%s", file, cmd)
+	log.Debug.Printf("开始处理文件%s\t生成的命令是:%s\n", file, cmd)
 
 	stdout, err := cmd.StdoutPipe()
 	cmd.Stderr = cmd.Stdout
