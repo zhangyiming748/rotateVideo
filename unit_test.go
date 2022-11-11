@@ -10,5 +10,5 @@ func TestHelp(t *testing.T) {
 	file := "電車.mp4"
 	threads := "2"
 	direction := "ToRight"
-	rotate_help(src, dst, file, direction, threads)
+	rotate_help(src, dst, file, direction, threads, 1, 1)
 }
