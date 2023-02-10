@@ -5,10 +5,9 @@ import (
 )
 
 func TestHelp(t *testing.T) {
-	src := "/Users/zen/Movies"
-	dst := "/Users/zen/Movies/bilibili"
-	file := "電車.mp4"
-	threads := "2"
+	src := "/Users/zen/Downloads/整理/dance/梓/Left/done"
+	pattern := "mp4"
+	threads := "10"
 	direction := "ToRight"
-	rotate_help(src, dst, file, direction, threads, 1, 1)
+	Rotate(src, pattern, direction, threads)
 }

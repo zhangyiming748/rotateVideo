@@ -1,6 +1,12 @@
+github.com/zhangyiming748/GetFileInfo v0.0.6 h1:s3d4ysTaCzB4vQHKrlQkE20yRzNMxLjbEfiLnFrznZM=
+github.com/zhangyiming748/GetFileInfo v0.0.6/go.mod h1:sOF64yo9TxOc4O8DUDntIJOZgzeHj4TFIsiFbBpkWfA=
+github.com/zhangyiming748/log v0.0.4 h1:p7odR9pA7ZV+OJuaXXhK5OeipKpQGF6VYnhCy16BO3Q=
+github.com/zhangyiming748/log v0.0.4/go.mod h1:0AuXMXYc1C1Q1nH2H4vipsrOTfANNf4oaZtDcT2GKk4=
 github.com/zhangyiming748/replace v0.0.4 h1:MttKBU+2pFNofExc1oUY0vaEsRV0lGiAyPSdyIn7/Co=
 github.com/zhangyiming748/replace v0.0.4/go.mod h1:R3otYn+0qxaHOVaz0LafMwoDjhTexJijrLgfcDyOYCQ=
 github.com/zhangyiming748/voiceAlert v0.0.5 h1:7qQV8fKCrM1VShAU4gYcMjDmzl0KTg+hpKh83+KliCw=
 github.com/zhangyiming748/voiceAlert v0.0.5/go.mod h1:ReSkuJK/eAGpWs1k5MvAAe2WTKKQly6LzbOZ6FoHk6Y=
 github.com/zhangyiming748/voiceAlert v0.0.8 h1:N206Rkx97stcB8joC9a/9DOU7fHCvStZyLhEj77iBhM=
 github.com/zhangyiming748/voiceAlert v0.0.8/go.mod h1:ReSkuJK/eAGpWs1k5MvAAe2WTKKQly6LzbOZ6FoHk6Y=
+github.com/zhangyiming748/voiceAlert v0.0.11 h1:A9SUa5onv5zKxdZF/0sYKg/AipZjwHNOqvp7kAQ/cc4=
+github.com/zhangyiming748/voiceAlert v0.0.11/go.mod h1:3Sm9UIT7GLeq3w/zRWxHFQd9RieDN1j00p7dIUTSc94=
