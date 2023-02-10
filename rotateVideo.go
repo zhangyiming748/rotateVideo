@@ -69,8 +69,8 @@ func rotate(in GetFileInfo.Info, direction, threads string) {
 		log.Warn.Panicf("命令执行中有错误产生:%v", err)
 	}
 	log.Debug.Printf("完成当前文件的处理:%s\n", dst)
-	//err = os.RemoveAll(in.FullPath)
-	//if err != nil {
-	//	log.Warn.Panicf("删除文件%v出现错误%v\n", in.FullPath, err)
-	//}
+	err = os.RemoveAll(in.FullPath)
+	if err != nil {
+		log.Warn.Panicf("删除文件%v出现错误%v\n", in.FullPath, err)
+	}
 }
