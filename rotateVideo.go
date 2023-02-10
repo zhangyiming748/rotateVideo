@@ -27,7 +27,7 @@ func rotate(in GetFileInfo.Info, direction, threads string) {
 			voiceAlert.CustomizedOnMac(voiceAlert.Shanshan, "文件处理发生错误")
 		}
 	}()
-	dst := strings.Join([]string{strings.Trim(in.FullPath, in.FullName), "done"}, "")
+	dst := strings.Join([]string{strings.Trim(in.FullPath, in.FullName), "rotate"}, "")
 	os.Mkdir(dst, os.ModePerm)
 	fname := strings.Join([]string{strings.Trim(in.FullName, in.ExtName), "mp4"}, ".")
 	export := strings.Join([]string{dst, fname}, string(os.PathSeparator))
