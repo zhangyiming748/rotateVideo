@@ -16,15 +16,14 @@ func Rotate(src, pattern, direction, threads string) {
 		log.Debug.Printf("正在处理第 %d/%d 个文件\n", index+1, len(files))
 		rotate(file, direction, threads)
 		log.Debug.Printf("处理完成第 %d/%d 个文件\n", index+1, len(files))
-		voiceAlert.CustomizedOnMac(voiceAlert.Shanshan, "单个文件处理完成")
+		voiceAlert.Customize("done", voiceAlert.Samantha)
 	}
-	voiceAlert.CustomizedOnMac(voiceAlert.Shanshan, "全部文件处理完成")
+	voiceAlert.Customize("complete", voiceAlert.Samantha)
 }
 func rotate(in GetFileInfo.Info, direction, threads string) {
-	//info := GetFileInfo.GetVideoFileInfo(in.FullPath)
 	defer func() {
 		if err := recover(); err != nil {
-			voiceAlert.CustomizedOnMac(voiceAlert.Shanshan, "文件处理发生错误")
+			voiceAlert.Customize("failed", voiceAlert.Samantha)
 		}
 	}()
 	dst := strings.Join([]string{strings.Trim(in.FullPath, in.FullName), "rotate"}, "")
@@ -60,7 +59,7 @@ func rotate(in GetFileInfo.Info, direction, threads string) {
 		//写成输出日志
 		t := string(tmp)
 		t = replace.Replace(t)
-		log.Info.Println(t)
+		log.TTY.Println(t)
 		if err != nil {
 			break
 		}
@@ -68,9 +67,10 @@ func rotate(in GetFileInfo.Info, direction, threads string) {
 	if err = cmd.Wait(); err != nil {
 		log.Warn.Panicf("命令执行中有错误产生:%v", err)
 	}
-	log.Debug.Printf("完成当前文件的处理:%s\n", dst)
 	err = os.RemoveAll(in.FullPath)
 	if err != nil {
 		log.Warn.Panicf("删除文件%v出现错误%v\n", in.FullPath, err)
+	} else {
+		log.Debug.Printf("完成当前文件的处理:%s\n", dst)
 	}
 }
