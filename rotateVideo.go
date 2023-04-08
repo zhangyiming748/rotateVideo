@@ -60,9 +60,9 @@ func init() {
 func Rotate(src, pattern, direction, threads string) {
 	files := GetFileInfo.GetAllFileInfo(src, pattern)
 	for index, file := range files {
-		mylog.Info("正在处理第 %d/%d 个文件\n", index+1, len(files))
+		mylog.Info(fmt.Sprintf("开始处理第 %d/%d 个文件", index+1, len(files)))
 		rotate(file, direction, threads)
-		mylog.Info("处理完成第 %d/%d 个文件\n", index+1, len(files))
+		mylog.Info(fmt.Sprintf("处理完成第 %d/%d 个文件", index+1, len(files)))
 		voiceAlert.Customize("done", voiceAlert.Ava)
 	}
 	voiceAlert.Customize("complete", voiceAlert.Ava)
