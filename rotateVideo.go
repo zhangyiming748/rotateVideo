@@ -3,7 +3,6 @@ package rotateVideo
 import (
 	"fmt"
 	"github.com/zhangyiming748/GetFileInfo"
-	"github.com/zhangyiming748/replace"
 	"github.com/zhangyiming748/voiceAlert"
 	"golang.org/x/exp/slog"
 	"io"
@@ -75,7 +74,7 @@ func rotate(in GetFileInfo.Info, direction, threads string) {
 	}()
 	dst := strings.Join([]string{strings.Trim(in.FullPath, in.FullName), "rotate"}, "")
 	os.Mkdir(dst, os.ModePerm)
-	fname := strings.Join([]string{strings.Trim(in.FullName, in.ExtName), "mp4"}, ".")
+	fname := strings.Join([]string{strings.Trim(in.FullName, in.ExtName), "mp4"}, "")
 	export := strings.Join([]string{dst, fname}, string(os.PathSeparator))
 	var cmd *exec.Cmd
 	var transport string
@@ -104,10 +103,10 @@ func rotate(in GetFileInfo.Info, direction, threads string) {
 	}
 	for {
 		tmp := make([]byte, 1024)
-		_, err := stdout.Read(tmp)
+		_, err = stdout.Read(tmp)
 		//写成输出日志
 		t := string(tmp)
-		t = replace.Replace(t)
+		t = strings.Replace(t, "\u0000", "", -1)
 		fmt.Println(t)
 		if err != nil {
 			break

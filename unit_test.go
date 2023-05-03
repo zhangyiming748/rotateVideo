@@ -5,7 +5,7 @@ import (
 )
 
 func TestHelp(t *testing.T) {
-	src := "/Users/zen/Downloads/整理/dance/梓/Left/done"
+	src := "/Volumes/T7/slacking/Telegram/未整理/dance/toRight/h265"
 	pattern := "mp4"
 	threads := "10"
 	direction := "ToRight"
